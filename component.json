@@ -1,0 +1,15 @@
+{
+  "name": "format",
+  "repo": "lepture/format",
+  "description": "An easy way for formatting in content editable.",
+  "version": "0.1.0",
+  "keywords": [],
+  "dependencies": {
+    "lepture/caret": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
