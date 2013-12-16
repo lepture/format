@@ -137,4 +137,15 @@ function hasParent(name, spanlevel) {
   };
 }
 
+// extends format with utilities.
+format._ = {
+  command: command,
+  formatblock: formatblock,
+  query: query,
+  hasParent: hasParent
+};
+
+// Reset default paragraph separator.
+command('defaultParagraphSeparator', 'p')();
+
 module.exports = format;
