@@ -1,4 +1,5 @@
-var caret = new require('caret');
+var Caret = require('caret');
+var caret = new Caret();
 
 function format(name) {
   var fn = format[name];
@@ -51,7 +52,7 @@ format.is.bold = function() {
   return hasParent('b', true)() || hasParent('strong', true)();
 };
 format.is.italic = function() {
-  return query('italic') || hasParent('i', true)() || hasParent('em', true)();
+  return query('italic')() || hasParent('i', true)() || hasParent('em', true)();
 };
 format.is.strike = query('strikethrough');
 format.is.sub = query('subscript');
