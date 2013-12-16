@@ -113,48 +113,91 @@ Insert html snippet.
 
 ### .is.bold()
 
+Is bold status of current caret selection?
+
 ### .is.italic()
+
+Is italic status of current caret selection?
 
 ### .is.strike()
 
+Is strike status of current caret selection?
+
 ### .is.sub()
+
+Is subscript status of current caret selection?
 
 ### .is.sup()
 
+Is superscript status of current caret selection?
+
 ### .is.underline()
+
+Is underline status of current caret selection?
 
 ### .is.p()
 
+Is p tag?
+
 ### .is.h1()
+
+Is h1 tag?
 
 ### .is.h2()
 
+Is h2 tag?
+
 ### .is.h3()
+
+Is h3 tag?
 
 ### .is.h4()
 
+Is h4 tag?
+
 ### .is.h5()
+
+Is h5 tag?
 
 ### .is.h6()
 
+Is h6 tag?
+
 ### .is.blockquote()
+
+Is blockquote tag?
 
 ### .is.div()
 
+Is div tag?
+
 ### .is.ol()
+
+Is ol tag?
 
 ### .is.ul()
 
+Is ul tag?
+
 ### .is.hr()
+
+Is hr tag?
 
 ### .is.a()
 
+Is a tag?
+
 ### .is.img()
 
-## ._.command
-## ._.formatblock
-## ._.query
-## ._.hasParent
+Is img tag?
+
+### ._.command
+
+### ._.formatblock
+
+### ._.query
+
+### ._.hasParent
 
 ## Future
 
