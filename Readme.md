@@ -1,4 +1,3 @@
-
 # format
 
 An easy way for formatting in content editable.
@@ -14,6 +13,10 @@ Install with [component(1)](http://component.io):
 ```js
 var format = require('format')
 ```
+
+### format(name)
+
+Format to the given style.
 
 ### .bold()
 
@@ -110,6 +113,10 @@ Add tag br.
 ### .html()
 
 Insert html snippet.
+
+### .is(name)
+
+Is the given name status?
 
 ### .is.bold()
 
