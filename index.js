@@ -3,7 +3,10 @@ var caret = new Caret();
 
 function format(name) {
   var fn = format[name];
-  fn && fn();
+  if (fn) {
+    return fn();
+  }
+  return null;
 }
 
 format.bold = command('bold');
