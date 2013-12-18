@@ -114,6 +114,10 @@ Add tag br.
 
 Insert html snippet.
 
+### .unlink()
+
+Remove the selected link.
+
 ### .is(name)
 
 Is the given name status?

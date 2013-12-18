@@ -40,6 +40,7 @@ format.img = command('insertimage');
 format.br = command('inserthtml', '<br>');
 
 format.html = command('inserthtml');
+format.unlink = command('unlink');
 
 /**
  * Check formatting of current caret.
