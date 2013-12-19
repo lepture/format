@@ -1,5 +1,6 @@
 var Caret = require('caret');
-var caret = new Caret();
+
+var caret = format._.caret || new Caret();
 
 function format(name) {
   var fn = format[name];
@@ -27,8 +28,21 @@ format.h6 = formatblock('h6');
 format.blockquote = formatblock('blockquote');
 format.div = formatblock('div');
 
-format.ol = command('insertOrderedList');
-format.ul = command('insertUnorderedList');
+format.ol = function() {
+  command('insertOrderedList')();
+  if (!format.is.ol()) {
+    return format.p();
+  }
+  fixList('ol');
+};
+
+format.ul = function() {
+  command('insertUnorderedList')();
+  if (!format.is.ul()) {
+    return format.p();
+  }
+  fixList('ul');
+};
 
 format.indent = command('indent');
 format.outdent = command('outdent');
@@ -140,6 +154,30 @@ function hasParent(name, spanlevel) {
     }
     return null;
   };
+}
+
+function fixList(type) {
+  var r = caret.range();
+  var el = r.commonAncestorContainer;
+
+  while (el = el.parentNode) {
+    var tag = el.tagName.toLowerCase();
+    if (!el || tag === 'div' || el.id || el.className || el === caret.element) {
+      break;
+    }
+    if (tag === type) {
+      el = el.parentNode;
+      if (el.tagName.toLowerCase() === 'p') {
+        caret.save();
+        for (var i = 0; i < el.childNodes.length; i++) {
+          el.parentNode.insertBefore(el.childNodes[i], el);
+        }
+        el.parentNode.removeChild(el);
+        caret.restore();
+        break;
+      }
+    }
+  }
 }
 
 // extends format with utilities.
