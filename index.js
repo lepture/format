@@ -1,6 +1,11 @@
+/**
+ * Format
+ *
+ * An easy way for formatting in content editable.
+ *
+ * Copyright (c) 2013 by Hsiaoming Yang.
+ */
 var Caret = require('caret');
-
-var caret = format._.caret || new Caret();
 
 function format(name) {
   var fn = format[name];
@@ -9,6 +14,9 @@ function format(name) {
   }
   return null;
 }
+
+// pass caret to format for reuse
+var caret = format.caret || new Caret();
 
 format.bold = command('bold');
 format.italic = command('italic');
