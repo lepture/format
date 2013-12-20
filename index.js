@@ -75,7 +75,7 @@ format.is = function(name) {
   return null;
 };
 format.is.bold = function() {
-  return hasParent('b', true)() || hasParent('strong', true)();
+  return query('bold')() || hasParent('b', true)() || hasParent('strong', true)();
 };
 format.is.italic = function() {
   return query('italic')() || hasParent('i', true)() || hasParent('em', true)();
