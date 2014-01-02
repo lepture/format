@@ -10,6 +10,10 @@ var Emitter = require('emitter');
 var emitter = new Emitter();
 
 function format(name) {
+  // exclude none commands
+  if (~['on', 'once', 'off', 'is', '_'].indexOf(name)) {
+    return null;
+  }
   var fn = format[name];
   if (fn) {
     return fn();
@@ -109,8 +113,11 @@ format.is.img = hasParent('img', true);
  */
 function command(name, param) {
   return function(args) {
+    var ret = document.execCommand(name, false, param || args);
     emitter.emit(name, param);
-    return document.execCommand(name, false, param || args);
+    // emit * event so that you can listen all events
+    emitter.emit('*', name, param);
+    return ret;
   };
 }
 
@@ -198,6 +205,15 @@ format._ = {
   query: query,
   hasParent: hasParent,
   emitter: emitter
+};
+format.on = function(event, fn) {
+  return emitter.on(event, fn);
+};
+format.once = function(event, fn) {
+  return emitter.once(event, fn);
+};
+format.off = function(event, fn) {
+  return emitter.off(event, fn);
 };
 
 // Reset default paragraph separator.
