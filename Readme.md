@@ -202,6 +202,18 @@ Is a tag?
 
 Is img tag?
 
+### .on(event, fn)
+
+Listen on event. See component/emitter.
+
+### .once(event, fn)
+
+Listen on event. See component/emitter.
+
+### .off(event, fn)
+
+Listen off event. See component/emitter.
+
 ### ._.command
 
 ### ._.formatblock
@@ -209,6 +221,8 @@ Is img tag?
 ### ._.query
 
 ### ._.hasParent
+
+### ._.emitter
 
 ## Future
 
