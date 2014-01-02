@@ -6,6 +6,8 @@
  * Copyright (c) 2013 by Hsiaoming Yang.
  */
 var Caret = require('caret');
+var Emitter = require('emitter');
+var emitter = new Emitter();
 
 function format(name) {
   var fn = format[name];
@@ -107,6 +109,7 @@ format.is.img = hasParent('img', true);
  */
 function command(name, param) {
   return function(args) {
+    emitter.emit(name, param);
     return document.execCommand(name, false, param || args);
   };
 }
@@ -193,7 +196,8 @@ format._ = {
   command: command,
   formatblock: formatblock,
   query: query,
-  hasParent: hasParent
+  hasParent: hasParent,
+  emitter: emitter
 };
 
 // Reset default paragraph separator.
